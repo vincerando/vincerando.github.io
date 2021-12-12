@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Blastoff 2.0</title>
+    <!-- Vincent Randol -->
+
+    <style>
+        body{
+            background-image: url('https://c4.wallpaperflare.com/wallpaper/387/95/786/risk-of-rain-video-game-art-purple-hd-wallpaper-preview.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+    .dash{
+        margin-left:500px;
+        display: inline-block;
+    }
+    .space{
+        margin-left:50px;
+        display: inline-block;
+    }
+    .board{
+        margin-left:50px;
+        display: inline-block;
+    }
+
+    table{
+        background-color: white;
+        opacity: 80%;
+        width: 800px;
+        text-align: left;
+    }
+
+    table, th, td {
+        background-color: white;
+        opacity: 80%;
+        border: 1px solid#000
+    }
+    </style>
+
+</head>
+<body>
+    <!--    The button  -->
+    <div>
+        <input type="button" id="btnClick" value="Launch Start"/>
+    </div>
+</body>
+<div class="linkmenu">
+    <ul>
+        
+            <a href="index.html"><span class="dash"></span>
+            <span>Dashboard</span></a>
+        
+        
+            <a href="" onclick="oops()"><span class="space"></span>
+            <span>Go to space</span></a>
+        
+        
+            <a href=""><span class="board"></span>
+            <span>What is a "board?"</span></a>
+        
+    </ul>
+    <table>
+        <tr>
+            <th><b>Data Types</b></th>
+            <th><b>Headings</b></th>
+        </tr>
+
+        <tr>
+            <td>Time Elapsed:</td>
+            <td>15 Seconds</td>
+        </tr>
+        <tr>
+            <td>Latitud:</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>Longitude:</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>GPS Altitutde:</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>BMP Sensor Altitude:</td>
+            <td>atleast 3</td>
+        </tr>
+        <tr>
+            <td>BMP Sensor Pressure:</td>
+            <td>2.34</td>
+        </tr>
+        <tr>
+            <td>BMP Sensor Temperature:</td>
+            <td>25</td>
+        </tr>
+        <tr>
+            <td>CSS Sensor eC02:</td>
+            <td>400</td>
+        </tr>
+        <tr>
+            <td>CSS Sensor eTVOC:</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>UV:</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>Accel X:</td>
+            <td>-0.87</td>
+        </tr>
+        <tr>
+            <td>I think</td>
+            <td>Thats enough tables</td>
+        </tr>
+    </table>
+</div>
+<script>
+
+        function oops(){
+            alert("ur already there");
+        };
+
+    var launchSound = new Audio("Launch.mp3");
+    var time = 50;
+    var x = 5000;
+
+        // This code runs when time = 0 
+        function launchSequence(){
+        console.log("0 | We have liftoff!");
+        launchSound.play();
+        };
+        
+        // This code runs after the initial setTimeout function runs.
+        function liftoff(){
+            if (time == 25){
+            console.log("Warning Less than ½ way to launch, time left: " + time);
+            time -= 5;
+            } else{
+            console.log(time + " Seconds remaining...");
+            time -= 5;
+            };
+            if (time != 0){
+            setTimeout(liftoff, x);
+            } else{
+                setTimeout(launchSequence, 5000);
+            };
+        };
+
+        
+
+        document.getElementById("btnClick").onclick = clickEvent;
+
+        function clickEvent(){
+            // Makes the button vanish
+            btnClick.style.visibility = 'hidden';
+            
+            //The initial liftoff
+            liftoff();
+            
+            //setTimeout(liftoff, x); (discarded code)
+        }
+
+        
+        
+</script>
+
+</html>
